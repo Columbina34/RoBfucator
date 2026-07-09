@@ -334,7 +334,6 @@ local function RonObfuscator(code, options)
     stripped = stripped:gsub("'(.-[^\\])'", capture)
     stripped = stripped:gsub('%[%[(.-)%]%]', capture)
 
-    -- Cifrar cadenas
     local enc_strings = {}
     for i, s in ipairs(strings) do
         enc_strings[i] = _encrypt_string(s)
@@ -477,9 +476,6 @@ if type(RonObfuscator) ~= "function" then
     while true do end
 end
 
--- =====================================================================
--- CAPA 5: RUIDO ADICIONAL PARA HACERLO AÚN MÁS LARGO
--- =====================================================================
 local _dummy_calc = 0
 for i = 1, 200000 do
     _dummy_calc = _dummy_calc + math.sin(i*0.001) * math.cos(i*0.002)
@@ -491,10 +487,6 @@ for i = 1, 3000 do
 end
 table.sort(_extra_table)
 
--- Bucle infinito condicional falso
 if false then while true do end end
 
--- =====================================================================
--- CAPA 6: RETORNO DE RONOBFUSCATOR
--- =====================================================================
 return RonObfuscator
